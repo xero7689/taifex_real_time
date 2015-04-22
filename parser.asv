@@ -8,8 +8,6 @@ function [ td ] = parser( source_page )
     tr_length = length(tr);
     td = cell(tr_length, 1);
     
-    data_to_display = '';
-    
     for tr_index = 1 : tr_length
         % Parse <tr>
         td{tr_index} = regexp(tr{tr_index}{1}, td_pattern, 'tokens');
@@ -20,9 +18,10 @@ function [ td ] = parser( source_page )
         td{tr_index, 1}{1, 1} = id{1, 1};
         
         % Disp
-        price = td{tr_index}{7}{1};
-        time = td{tr_index}{15}{1};
-        fprintf('%s\t%s\t%s\n', td{tr_index}{1}{1}, price, time);
+        price = td{7, 1}{1, 1};
+        time = td{15, 1}{1, 1};
+        data = [id '\t' price '\t' time '\n'];
     end;
+    
 end
 
