@@ -6,7 +6,7 @@ clc;
 taifex_url = 'http://info512.taifex.com.tw/Future/FusaQuote_Norl.aspx';
 latest_data = {};
 data_path = [pwd() '/data'];
-period = 1; % 1ms
+period = 0.5; % 1ms
 retry = 10;
 
 %% Initialize
@@ -20,7 +20,7 @@ while ~finish_flag
     % Output
     os = output(data, data_path);
 
-    % Sleep
+    % sleep period
     if period
         pause(period);
     end;
