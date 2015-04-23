@@ -1,11 +1,13 @@
 function [ output_string ] = output( data, data_path )
-%OUTPUT Summary of this function goes here
-%   Detailed explanation goes here
+%   Export the cell array of fetched data into text file.
+%   
+    % Check whether the data folder is exist.
     if ~isequal(exist(data_path, 'dir'), 7)
         mkdir(data_path);
     end;
 
     current = clock;
+    % Name of file.
     fn = sprintf('%d%d%d%s', current(1), current(2), current(3), '.txt');
     fd = fopen([data_path, '/', fn], 'a+');
     output_string = '';
@@ -16,9 +18,8 @@ function [ output_string ] = output( data, data_path )
         end;
         output_string = [output_string data_string '\n'];
     end;
-    disp(output_string);
-    fprintf(fd, cell2mat(output_string));
+    fprintf(cell2mat(output_string));
+    fprintf(fd, cell2mat(output_string));  % export to text file.
     fclose(fd);
-    flag = false;
 end
 

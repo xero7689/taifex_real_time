@@ -1,25 +1,29 @@
-%% Taifex Real Time Crawler
+% Taifex Real Time Crawler
+% author:xero7689
+% email:volleyp7689@gmail.com
+
 clear all;
 clc;
 
-%% Preprocess
+% Preprocess
 taifex_url = 'http://info512.taifex.com.tw/Future/FusaQuote_Norl.aspx';
 latest_data = {};
 data_path = [pwd() '/data'];
-period = 1; % 1ms
-retry = 10;
+period = 1; % 1 second
+%retry = 10;
+FINISH = false;
 
-%% Initialize
 fprintf('Launch Crawler..');
-finish_flag = false;
 
-while ~finish_flag
+while ~FINISH
     % Fetch Data
-    [data finish_flag] = fetch(taifex_url, true);
+    [data, fetch_status] = fetch(taifex_url);
 
     % Output
-    os = output(data, data_path);
-
+    if fetch_status
+        output(data, data_path);
+    end;
+    
     % Sleep
     if period
         pause(period);

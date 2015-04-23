@@ -1,14 +1,13 @@
-function [ td ] = parser( source_page )
-%% Taifex Real-Time Source Page Parser Using Regular Expression.
+function [ td ] = parse( source_page )
+% Taifex Source Page Parser Using Regular Expression.
+% Input: Source Page of TAIFEX
+% Output: 
     tr_pattern = '<tr class="custDataGridRow".*?>(.*?)</tr>';
     td_pattern = '<td.*?><font.*?>(.*?)</font></td>';
     
     tr = regexp(source_page, tr_pattern, 'tokens');
-    
     tr_length = length(tr);
     td = cell(tr_length, 1);
-    
-    data_to_display = '';
     
     for tr_index = 1 : tr_length
         % Parse <tr>
