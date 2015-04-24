@@ -20,6 +20,9 @@ while ~FINISH
     [data, fetch_status] = fetch(taifex_url);
 
     % Output
+    output(data, data_path);
+
+    % sleep period
     if fetch_status
         output(data, data_path);
     end;
