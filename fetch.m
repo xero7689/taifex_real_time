@@ -1,11 +1,10 @@
-function [ data, fetch_success ] = fetch(taifex_url)
+function [ data, start_time, finish_time, fetch_success ] = fetch(taifex_url)
 %   Fetch Data From taifex_url
 %   Return a cell array of fetched data and a flag of fetch status.
 
     % The opening time of futures exchange is 8:35 ~ 13:45,
     % Sleep the process until that time.
     current = clock;
-    %{
     if current(4) < 8 || current(4) == 8 && current(5) < 35
         current_sec = current(4) * 60 * 60 + current(5) * 60 + current(6);
         open_sec = 8 * 60 * 60 + 35 * 60;
@@ -25,12 +24,15 @@ function [ data, fetch_success ] = fetch(taifex_url)
         data = '';
         return
     end;
-    %}
+    
     
     % Download Taifex source page
     % Some url error occured while fetching.
     start_time = clock; 
-    source_page = urlread(taifex_url, 'Timeout', 5);
+    try
+        source_page = urlread(taifex_url);
+    catch 
+    end;
     finish_time = clock;
     
     % Parse source Page
