@@ -48,6 +48,8 @@ function [ output_string ] = output( data, start_time, finish_time, data_path, f
             output_string = [output_string st '\t' ft '\t' data_string '\n'];
         end;
         clc;
+        fprintf('%s\t%s\t %s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t\n'...
+        , 'START', 'FINISH', 'FUTURES', 'STATUS', 'BID', 'BIDVOL', 'ASK', 'ASKVOL', 'PRICE', 'CHANGE', 'SPREAD', 'VOL', 'OPEN', 'HIGH', 'LOW', 'REF', 'TIME');
         fprintf(cell2mat(output_string));
         fprintf(fd, cell2mat(output_string));  % export to text file.
         fclose(fd);
