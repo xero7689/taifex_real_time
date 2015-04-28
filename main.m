@@ -5,4 +5,4 @@
 clear all;
 clc;
 
-taifex_realTime([1, 2, 3]);
+taifex_realTime([1, 3, 5, 7, 9]);
