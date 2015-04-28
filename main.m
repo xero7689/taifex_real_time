@@ -5,30 +5,4 @@
 clear all;
 clc;
 
-% Preprocess
-taifex_url = 'http://info512.taifex.com.tw/Future/FusaQuote_Norl.aspx';
-latest_data = {};
-data_path = [pwd() '/data'];
-period = 1; % 1 second
-%retry = 10;
-FINISH = false;
-
-fprintf('Launch Crawler..');
-
-while ~FINISH
-    % Fetch Data
-    [data, fetch_status] = fetch(taifex_url);
-
-    % Output
-    output(data, data_path);
-
-    % sleep period
-    if fetch_status
-        output(data, data_path);
-    end;
-    
-    % Sleep
-    if period
-        pause(period);
-    end;
-end;
+taifex_realTime([1, 2, 3]);
