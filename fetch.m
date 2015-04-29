@@ -4,9 +4,6 @@ function [ data, start_time, finish_time, fetch_success ] = fetch(taifex_url)
 
     % The opening time of futures exchange is 8:35 ~ 13:45,
     % Sleep the process until that time.
-    % 期交所的營業時間為早上8:45 ~ 13:45(其中前10分鐘為試搓階段)
-    % 因此將Fetch的時間往前往後延長10分鐘避免兩邊有時間上的誤差
-    % 這段時間以外開啟程序會自動睡眠到交易日
     current = clock;
 
     if current(4) < 8 || current(4) == 8 && current(5) < 35
@@ -41,7 +38,6 @@ function [ data, start_time, finish_time, fetch_success ] = fetch(taifex_url)
     finish_time = clock;
     
     % Parse source Page
-    % 用parse函式分析下載回來的網頁原始碼
     data = parse(source_page);
     
     % Return
