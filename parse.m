@@ -1,7 +1,7 @@
 function [ td ] = parse( source_page )
 % Taifex Source Page Parser Using Regular Expression.
 % Input: Source Page of TAIFEX
-% Output: 
+% Output: Cell Array which contains every futures.
     tr_pattern = '<tr class="custDataGridRow".*?>(.*?)</tr>';
     td_pattern = '<td.*?><font.*?>(.*?)</font></td>';
     

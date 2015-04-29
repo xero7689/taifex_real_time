@@ -5,5 +5,5 @@
 clear all;
 clc;
 
-% Sample of Using Function
+% Sample of using taifex_realTime Function
 taifex_realTime([1, 2, 3]);
