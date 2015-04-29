@@ -1,7 +1,4 @@
 function [ ] = taifex_realTime( varargin )
-%TAIFEX_REALTIME Summary of this function goes here
-%   Detailed explanation goes here
-    
     % Handle Arguments
     % 0: Will fetch every futures.
     % [1, 2, 3 ...]: Matrix of future's ID that user want to fetch.
@@ -37,6 +34,5 @@ function [ ] = taifex_realTime( varargin )
             pause(period);
         end;
     end;
-    
 end
 

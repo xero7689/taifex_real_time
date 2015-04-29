@@ -5,4 +5,5 @@
 clear all;
 clc;
 
-taifex_realTime([1, 3, 5, 7, 9]);
+% Sample of Using Function
+taifex_realTime([1, 2, 3]);
