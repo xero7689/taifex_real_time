@@ -1,6 +1,7 @@
 function [ output_string ] = output( data, start_time, finish_time, data_path, fetch_mode )
-%   Export the cell array of fetched data into text file.
-%   
+% Export the cell array of fetched data into text file.
+% 將存放資料的細胞陣列輸出成.txt檔，以及stdout.
+
     % Check whether the data folder is exist.
     if ~isequal(exist(data_path, 'dir'), 7)
         mkdir(data_path);

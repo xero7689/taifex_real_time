@@ -1,7 +1,8 @@
 function [ td ] = parse( source_page )
 % Taifex Source Page Parser Using Regular Expression.
 % Input: Source Page of TAIFEX
-% Output: 
+% Output: Cell Array which contains every futures.
+% 輸入網頁原始碼，用regular expression分析後輸出成一個細胞陣列
     tr_pattern = '<tr class="custDataGridRow".*?>(.*?)</tr>';
     td_pattern = '<td.*?><font.*?>(.*?)</font></td>';
     

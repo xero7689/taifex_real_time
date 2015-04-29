@@ -13,11 +13,10 @@ function [ ] = taifex_realTime( varargin )
         fetch_mode = varargin{1};
     end;
     
-    % Preprocess
+    %% Preprocess
     taifex_url = 'http://info512.taifex.com.tw/Future/FusaQuote_Norl.aspx';
-    %latest_data = {};
     data_path = [pwd() '/data'];
-    period = 1; % 1 second
+    period = 1; % fetch frequent, 1 second.
     %retry = 10;
     FINISH = false;
 
@@ -37,6 +36,5 @@ function [ ] = taifex_realTime( varargin )
             pause(period);
         end;
     end;
-    
 end
 
